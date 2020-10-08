@@ -36,30 +36,7 @@ public class VendingMachineCLI {
 		}
 	}
 	
-	public static void main(String[] args) {
-		List<VendingMachineItem> inventoryList = new ArrayList<>();
-		File inventory = new File("vendingmachine.csv");
-		try(Scanner inventoryScanner = new Scanner(inventory))
-		{
-			inventoryScanner.useDelimiter("\\|");
-			System.out.print(inventoryScanner.next());
-			System.out.print(inventoryScanner.next());
-			System.out.print(inventoryScanner.next());
-			System.out.print(inventoryScanner.next());
-			while(inventoryScanner.hasNext())
-			{
-				if(inventoryScanner.nextLine().contains("Chip"))
-				{
-					ChipClass chip = new ChipClass();
-					
-					System.out.println("");
-				}
-			}
-		}
-		catch(FileNotFoundException e)
-		{
-			
-		}
+	public static void main(String[] args) {		
 		Menu menu = new Menu(System.in, System.out);
 		VendingMachineCLI cli = new VendingMachineCLI(menu);
 		cli.run();		
