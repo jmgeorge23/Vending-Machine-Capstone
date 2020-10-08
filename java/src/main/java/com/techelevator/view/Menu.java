@@ -5,6 +5,8 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import com.techelevator.InventoryClass;
+
 public class Menu {
 
 	private PrintWriter out;
@@ -37,7 +39,12 @@ public class Menu {
 		}
 		if (choice == null) {
 			out.println("\n*** " + userInput + " is not a valid option ***\n");
+		} else if(choice == options[0]) {
+			out.println("---- Inventory List ----");
+			InventoryClass inventory = new InventoryClass();
+			System.out.println(inventory.getInventoryList());
 		}
+		
 		return choice;
 	}
 

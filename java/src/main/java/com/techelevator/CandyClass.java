@@ -18,22 +18,7 @@ public class CandyClass extends VendingMachineItem{
 	}
 	public void setCandy(File inventory)
 	{
-		try(Scanner inventoryScanner = new Scanner(inventory))
-		{
-			inventoryScanner.useDelimiter("\\|");
-			if(inventoryScanner.nextLine().contains("Candy"))
-			{	
-				while(inventoryScanner.hasNext())
-				{									
-					inventoryList.add(new CandyClass(inventoryScanner.next(), inventoryScanner.next(),inventoryScanner.nextDouble(),inventoryScanner.next()));					
-					System.out.println(inventoryList.get(0).getCode());
-				}
-			}
-		}
-		catch(FileNotFoundException e)
-		{
-			System.out.println();
-		}
+
 	}
 
 
