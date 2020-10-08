@@ -1,11 +1,16 @@
 package com.techelevator.view;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.techelevator.InventoryClass;
+import com.techelevator.VendingMachineItem;
 
 public class Menu {
 
@@ -40,9 +45,23 @@ public class Menu {
 		if (choice == null) {
 			out.println("\n*** " + userInput + " is not a valid option ***\n");
 		} else if(choice == options[0]) {
-			out.println("---- Inventory List ----");
-			InventoryClass inventory = new InventoryClass();
-			System.out.println(inventory.getInventoryList());
+			System.out.println("---- Inventory List ----");
+			List<VendingMachineItem> inventoryList = new ArrayList<>();			
+			InventoryClass vendingMachineInventory = new InventoryClass();
+			File inventory = new File("vendingmachine.csv");
+			vendingMachineInventory.setInventoryList(inventory);
+			try(Scanner inventoryScanner = new Scanner(inventory))
+			{
+				inventoryScanner.useDelimiter("\\|");
+				while(inventoryScanner.hasNextLine()) 
+				{
+					System.out.println(inventoryScanner.nextLine() + "|"+ 5);
+					//vendingMachineInventory.getInventoryList();
+				}
+			}catch (FileNotFoundException e) 
+			{
+				System.out.println("File not found. Nerd.");
+			}
 		}
 		
 		return choice;

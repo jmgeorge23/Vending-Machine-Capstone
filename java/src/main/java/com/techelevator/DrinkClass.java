@@ -16,25 +16,4 @@ public class DrinkClass extends VendingMachineItem{
 	{
 		sound = "Glug Glug, Yum!";
 	}
-	
-	public void setDrink(File inventory)
-	{
-		try(Scanner inventoryScanner = new Scanner(inventory))
-		{
-			inventoryScanner.useDelimiter("\\|");
-			if(inventoryScanner.nextLine().contains("Drink"))
-			{	
-				while(inventoryScanner.hasNext())
-				{									
-					inventoryList.add(new DrinkClass(inventoryScanner.next(), inventoryScanner.next(),inventoryScanner.nextDouble(),inventoryScanner.next()));					
-					System.out.println(inventoryList.get(0).getCode());
-				}
-			}
-		}
-		catch(FileNotFoundException e)
-		{
-			System.out.println();
-		}
-	}
-
 }

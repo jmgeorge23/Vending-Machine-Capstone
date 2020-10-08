@@ -7,8 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class VendingMachineItem {
-	public List<VendingMachineItem> inventoryList = new ArrayList<>();
-	public File inventory = new File("vendingmachine.csv");
+	
 	
 	public String code;
 	public String name;
@@ -53,24 +52,5 @@ public class VendingMachineItem {
 	
 }
 
-/**
- * try(Scanner inventoryScanner = new Scanner(inventory))
-	{
-		inventoryScanner.useDelimiter("\\|");			
-		while(inventoryScanner.hasNextLine())
-		{
-			if(inventoryScanner.nextLine().contains("Chip"))
-			{						
-				inventoryList.add(new ChipClass(inventoryScanner.next(), inventoryScanner.next(),inventoryScanner.nextDouble(),inventoryScanner.next()));
-				
-				System.out.println(inventoryList.get(0).getCode());
-			}
-		}
-	}
-	catch(FileNotFoundException e)
-	{
-		System.out.println();
-	}
- */
 
 

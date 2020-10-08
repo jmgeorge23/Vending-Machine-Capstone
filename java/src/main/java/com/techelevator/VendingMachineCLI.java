@@ -28,8 +28,8 @@ public class VendingMachineCLI {
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
-			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
-				
+			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {				
+//								
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
 			}

@@ -16,10 +16,5 @@ public class CandyClass extends VendingMachineItem{
 	{
 		sound = "Munch Munch, Yum!";
 	}
-	public void setCandy(File inventory)
-	{
-
-	}
-
-
+	
 }

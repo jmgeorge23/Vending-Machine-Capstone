@@ -9,9 +9,8 @@ import java.util.Scanner;
 public class InventoryClass {
 	
 	public List<VendingMachineItem> inventoryList = new ArrayList<>();
-
-
 	public File inventory = new File("vendingmachine.csv");
+	
 	
 	public List<VendingMachineItem> getInventoryList() {
 		return inventoryList;
