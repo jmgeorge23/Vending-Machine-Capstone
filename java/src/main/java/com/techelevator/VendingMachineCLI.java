@@ -2,6 +2,8 @@ package com.techelevator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.techelevator.view.Menu;
@@ -34,16 +36,33 @@ public class VendingMachineCLI {
 		}
 	}
 	
-	
-	
-
-
-	
 	public static void main(String[] args) {
+		List<VendingMachineItem> inventoryList = new ArrayList<>();
+		File inventory = new File("vendingmachine.csv");
+		try(Scanner inventoryScanner = new Scanner(inventory))
+		{
+			inventoryScanner.useDelimiter("\\|");
+			System.out.print(inventoryScanner.next());
+			System.out.print(inventoryScanner.next());
+			System.out.print(inventoryScanner.next());
+			System.out.print(inventoryScanner.next());
+			while(inventoryScanner.hasNext())
+			{
+				if(inventoryScanner.nextLine().contains("Chip"))
+				{
+					ChipClass chip = new ChipClass();
+					
+					System.out.println("");
+				}
+			}
+		}
+		catch(FileNotFoundException e)
+		{
+			
+		}
 		Menu menu = new Menu(System.in, System.out);
 		VendingMachineCLI cli = new VendingMachineCLI(menu);
-		cli.run();
-		
+		cli.run();		
 	
 	}
 }
