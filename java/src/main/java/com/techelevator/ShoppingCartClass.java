@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 public class ShoppingCartClass {
 
-	public int balance = 0;
-
-	public int getBalance() {
+	public double balance = 0.0;
+	public double getBalance() {
 		return balance;
 	}
 
@@ -16,14 +15,20 @@ public class ShoppingCartClass {
 	public final double penny = 0.01;
 	
 	public double subtractCost(double price) {
-		
-		return balance;
-		
+		balance-=price;
+		System.out.println("Your new balance is $ " + formatMoney());
+		return balance;		
 		
 	} 
 	
 	public double addFunds(double amountAdded) {
 		balance += amountAdded;
+		System.out.println("Your new balance is $ " + formatMoney());
 		return balance;
+	}
+	public String formatMoney()
+	{
+		
+		return String.format("%.2f", balance);
 	}
 }

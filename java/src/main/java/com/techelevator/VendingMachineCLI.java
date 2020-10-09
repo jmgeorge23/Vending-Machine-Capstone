@@ -22,7 +22,7 @@ public class VendingMachineCLI {
 	private static final String[] PURCHASE_MENU_OPTIONS = { PURCHASE_MENU_FEED_MONEY, PURCHASE_MENU_SELECT_PRODUCT, PURCHASE_MENU_FINISH_TRANSACTION };
 	private Menu menu;
 	private Menu submenu;
-	public Scanner addFunds;
+	public Scanner userInput = new Scanner(System.in);
 
 	public VendingMachineCLI(Menu menu, Menu submenu) {
 		this.menu = menu;
@@ -35,6 +35,7 @@ public class VendingMachineCLI {
 	public InventoryClass vendingInventory = new InventoryClass();
 	public ShoppingCartClass shoppingCart = new ShoppingCartClass();
 
+
 	public void run() {
 						vendingInventory.setInventoryList(inventory);
 		while (true) {
@@ -46,25 +47,38 @@ public class VendingMachineCLI {
 				vendingInventory.printInventoryList();
 										
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
-				String subChoice = (String) submenu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
-				if(subChoice.equals(PURCHASE_MENU_FEED_MONEY)) {
-				 System.out.println("How much money do you want to add in numbers?");
-				 double userInput = addFunds.nextDouble();	
-				 shoppingCart.addFunds(userInput);
-					
-				}
-				else if(subChoice.equals(PURCHASE_MENU_SELECT_PRODUCT)) {
-					//select product
-				}
-		
+				while(choice.contentEquals(MAIN_MENU_OPTION_PURCHASE))
+				{
+					System.out.println("Your balance is $" + shoppingCart.formatMoney());
+					String subChoice = (String) submenu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
 				
-				else if(subChoice.equals(PURCHASE_MENU_FINISH_TRANSACTION)) {
-					// rob ' em
+					if(subChoice.equals(PURCHASE_MENU_FEED_MONEY)) {
+						System.out.println("Enter a dollar amount to add:");
+						double addedFunds = userInput.nextDouble();
+						shoppingCart.addFunds(addedFunds);
+						//System.out.println("Your balance is $" + shoppingCart.formatMoney());
+						
+					}
+					else if(subChoice.equals(PURCHASE_MENU_SELECT_PRODUCT)) {
+						System.out.println("What galaxy-brained purchase would you like to make?");
+						String purchaseCode = userInput.nextLine();
+						if(vendingInventory.inventoryList.containsKey(purchaseCode))
+						{
+							shoppingCart.subtractCost(vendingInventory.inventoryList.get(purchaseCode).getPrice());
+							vendingInventory.inventoryList.get(purchaseCode).takeOne();
+							vendingInventory.inventoryList.get(purchaseCode).getSound();
+						}					
+					}				
+					else if(subChoice.equals(PURCHASE_MENU_FINISH_TRANSACTION)) {
+					System.out.println("Thanks for your purchase, Gamer");
+					choice = "";
+					}
 				}
 			}
 			else if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
-				System.out.println("Thanks for your purchase, Epic Gamer");
-			System.exit(0);
+				System.out.println("Thanks for your purchase, Epic Gamer. Be sure to like, comment and subscribe!");
+				System.exit(0);
+			
 			}
 		}
 	}

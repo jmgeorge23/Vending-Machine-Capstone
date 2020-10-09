@@ -48,15 +48,7 @@ public class Menu {
 		}
 		if (choice == null) {
 			out.println("\n*** " + userInput + " is not a valid option ***\n");
-//		} else if(choice == options[0]) {
-//			System.out.println("---- Inventory List ----");
-//			
-//			vendingInventory.setInventoryList(inventory);
-//			vendingInventory.printInventoryList();
-//		}
-//		else if(choice == options[1])
-//		{
-//
+
 		}
 		
 		return choice;

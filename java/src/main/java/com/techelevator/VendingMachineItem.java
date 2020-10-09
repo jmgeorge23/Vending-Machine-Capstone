@@ -31,11 +31,12 @@ public class VendingMachineItem {
 		return price;
 	}
 
-	public String getType() {
+	public String getType() {		
 		return type;
 	}
 
 	public String getSound() {
+		System.out.println(sound);
 		return sound;
 	}	
 	public int getStock()
