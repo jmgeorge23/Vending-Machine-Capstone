@@ -16,6 +16,9 @@ public class Menu {
 
 	private PrintWriter out;
 	private Scanner in;
+	
+	public File inventory = new File("vendingmachine.csv");
+	public InventoryClass vendingInventory = new InventoryClass();
 
 	public Menu(InputStream input, OutputStream output) {
 		this.out = new PrintWriter(output);
@@ -46,22 +49,21 @@ public class Menu {
 			out.println("\n*** " + userInput + " is not a valid option ***\n");
 		} else if(choice == options[0]) {
 			System.out.println("---- Inventory List ----");
-			List<VendingMachineItem> inventoryList = new ArrayList<>();			
-			InventoryClass vendingMachineInventory = new InventoryClass();
-			File inventory = new File("vendingmachine.csv");
-			vendingMachineInventory.setInventoryList(inventory);
-			try(Scanner inventoryScanner = new Scanner(inventory))
-			{
-				inventoryScanner.useDelimiter("\\|");
-				while(inventoryScanner.hasNextLine()) 
-				{
-					System.out.println(inventoryScanner.nextLine() + "|"+ 5);
-					//vendingMachineInventory.getInventoryList();
+			
+			vendingInventory.setInventoryList(inventory);
+			vendingInventory.printInventoryList();
+		}
+		else if(choice == options[1])
+		{
+			try {
+				int selectedOption = Integer.valueOf(userInput);
+				if (selectedOption > 0 && selectedOption <= options.length) {
+					choice = options[selectedOption - 1];
 				}
-			}catch (FileNotFoundException e) 
-			{
-				System.out.println("File not found. Nerd.");
+			} catch (NumberFormatException e) {
+				// eat the exception, an error message will be displayed below since choice will be null
 			}
+			
 		}
 		
 		return choice;

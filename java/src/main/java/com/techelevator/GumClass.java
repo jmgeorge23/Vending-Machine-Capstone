@@ -6,14 +6,10 @@ import java.util.Scanner;
 
 public class GumClass extends VendingMachineItem{
 	
-	public GumClass(String code, String name, double price, String type)
+	public GumClass(String name, double price)
 	{
-		super(code, name, price, type);
-		
-	}
-	@Override
-	public void setSound()
-	{
-		sound = "Chew Chew, Yum!";
+		super(name, price);
+		type = "Gum";
+		sound = "Chew Chew, Yum!";		
 	}	
 }

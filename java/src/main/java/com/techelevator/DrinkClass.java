@@ -6,14 +6,11 @@ import java.util.Scanner;
 
 public class DrinkClass extends VendingMachineItem{
 	
-	public DrinkClass(String code, String name, double price, String type)
+	public DrinkClass(String name, double price)
 	{
-		super(code, name, price, type);
-		
-	}
-	@Override
-	public void setSound()
-	{
+		super(name, price);
+		type = "Drink";
 		sound = "Glug Glug, Yum!";
+		
 	}
 }

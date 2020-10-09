@@ -6,14 +6,11 @@ import java.util.Scanner;
 
 public class ChipClass extends VendingMachineItem {
 	
-	public ChipClass(String code, String name, double price, String type)
+	public ChipClass(String name, double price)
 	{
-		super(code, name, price, type);
-		
-	}
-	@Override
-	public void setSound()
-	{
+		super(name, price);
+		type = "Chip";
 		sound = "Crunch Crunch, Yum!";
 	}
+	
 }
