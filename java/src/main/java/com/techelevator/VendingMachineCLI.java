@@ -53,12 +53,17 @@ public class VendingMachineCLI {
 					String subChoice = (String) submenu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
 				
 					if(subChoice.equals(PURCHASE_MENU_FEED_MONEY)) {
-						System.out.println("Enter a dollar amount to add:");
+						System.out.println("Bill amount to be added:");
 						double addedFunds = userInput.nextDouble();
+						if(addedFunds == 1 || addedFunds == 2 || addedFunds == 5 || addedFunds == 10 || addedFunds == 20) {
 						shoppingCart.addFunds(addedFunds);
-						//System.out.println("Your balance is $" + shoppingCart.formatMoney());
+						} else {
+							System.out.println("Invalid bill entered, please try again");
+						}
+						
 						
 					}
+					
 					else if(subChoice.equals(PURCHASE_MENU_SELECT_PRODUCT)) {
 						System.out.println("What galaxy-brained purchase would you like to make?");
 						String purchaseCode = userInput.nextLine();
@@ -71,7 +76,9 @@ public class VendingMachineCLI {
 					}				
 					else if(subChoice.equals(PURCHASE_MENU_FINISH_TRANSACTION)) {
 					System.out.println("Thanks for your purchase, Gamer");
+					shoppingCart.returnChange();
 					choice = "";
+					
 					}
 				}
 			}

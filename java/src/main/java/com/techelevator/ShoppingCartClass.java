@@ -9,10 +9,15 @@ public class ShoppingCartClass {
 		return balance;
 	}
 
-	public final double quater = 0.25;
-	public final double dime = 0.10;
-	public final double nickel = 0.05;
-	public final double penny = 0.01;
+	double quarter = 0.25;
+	double dime = 0.10;
+	double nickel = 0.05;
+
+	
+	int quartersToReturn = 0;
+	int dimesToReturn = 0;
+	int nickelsToReturn = 0;
+	
 	
 	public double subtractCost(double price) {
 		balance-=price;
@@ -31,4 +36,23 @@ public class ShoppingCartClass {
 		
 		return String.format("%.2f", balance);
 	}
+	
+	public void returnChange() {
+		
+		while(balance > 0) {
+			if(balance >= quarter) {
+				quartersToReturn++;
+				balance -= quarter;
+	} else if (balance >= dime) {
+		dimesToReturn++;
+		balance -= dime;
+	} else if (balance >= nickel) {
+		nickelsToReturn++;
+		balance -= nickel;
+	}
+	}
+		this.balance = 0;
+	System.out.println("Your change is as follows " + quartersToReturn + " quarters, " + dimesToReturn + " dimes, " + nickelsToReturn + " nickels." );
+	}
+	
 }
