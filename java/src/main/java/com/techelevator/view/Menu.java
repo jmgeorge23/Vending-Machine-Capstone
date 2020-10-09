@@ -36,6 +36,7 @@ public class Menu {
 
 	private Object getChoiceFromUserInput(Object[] options) {
 		Object choice = null;
+		Object subChoice = null;
 		String userInput = in.nextLine();
 		try {
 			int selectedOption = Integer.valueOf(userInput);
@@ -47,23 +48,15 @@ public class Menu {
 		}
 		if (choice == null) {
 			out.println("\n*** " + userInput + " is not a valid option ***\n");
-		} else if(choice == options[0]) {
-			System.out.println("---- Inventory List ----");
-			
-			vendingInventory.setInventoryList(inventory);
-			vendingInventory.printInventoryList();
-		}
-		else if(choice == options[1])
-		{
-			try {
-				int selectedOption = Integer.valueOf(userInput);
-				if (selectedOption > 0 && selectedOption <= options.length) {
-					choice = options[selectedOption - 1];
-				}
-			} catch (NumberFormatException e) {
-				// eat the exception, an error message will be displayed below since choice will be null
-			}
-			
+//		} else if(choice == options[0]) {
+//			System.out.println("---- Inventory List ----");
+//			
+//			vendingInventory.setInventoryList(inventory);
+//			vendingInventory.printInventoryList();
+//		}
+//		else if(choice == options[1])
+//		{
+//
 		}
 		
 		return choice;

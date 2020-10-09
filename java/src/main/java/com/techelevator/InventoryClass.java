@@ -13,6 +13,7 @@ public class InventoryClass {
 	
 	public Map<String, VendingMachineItem> inventoryList = new LinkedHashMap<>();
 	public File inventory = new File("vendingmachine.csv");
+
 	
 	
 	public void printInventoryList() {
