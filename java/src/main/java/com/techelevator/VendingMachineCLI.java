@@ -56,21 +56,26 @@ public class VendingMachineCLI {
 					if(subChoice.equals(PURCHASE_MENU_FEED_MONEY)) {
 						//while(true)
 						{
-						System.out.println("Bill amount to be added:");
-						double addedFunds = userInput.nextDouble();
-						if(addedFunds == 1 || addedFunds == 2 || addedFunds == 5 || addedFunds == 10 || addedFunds == 20) {
-						shoppingCart.addFunds(addedFunds);
-						} else {
-							System.out.println("Invalid bill entered, please try again");
-						}	
+							System.out.println("Bill amount to be added:");
+							double addedFunds = userInput.nextDouble();
+							if(addedFunds == 1 || addedFunds == 2 || addedFunds == 5 || addedFunds == 10 || addedFunds == 20) {
+								shoppingCart.addFunds(addedFunds);
+						} 
+							else {
+								System.out.println("Invalid bill entered, please try again");
+							}
+							vendingInventory.logSale(subChoice,	shoppingCart.balance);
 						}
 					}
 					
 					else if(subChoice.equals(PURCHASE_MENU_SELECT_PRODUCT)) {
-						System.out.println("What galaxy-brained purchase would you like to make?");
+						Scanner codeScanner = new Scanner(System.in);
+						
 						while(true)
-						{						
-							String purchaseCode = userInput.nextLine().toUpperCase();
+						{	
+							System.out.println("What galaxy-brained purchase would you like to make?");
+							String purchaseCode = codeScanner.nextLine().toUpperCase();
+							
 							if(vendingInventory.inventoryList.containsKey(purchaseCode))
 							{
 								if(shoppingCart.canOrder(vendingInventory.inventoryList.get(purchaseCode).getPrice()))
@@ -78,8 +83,8 @@ public class VendingMachineCLI {
 									shoppingCart.subtractCost(vendingInventory.inventoryList.get(purchaseCode).getPrice());
 									vendingInventory.inventoryList.get(purchaseCode).takeOne();
 									vendingInventory.inventoryList.get(purchaseCode).getSound();
-									vendingInventory.logSale(vendingInventory.inventoryList.get(purchaseCode).getName(),
-											vendingInventory.inventoryList.get(purchaseCode).getPrice());
+									vendingInventory.logSale(vendingInventory.inventoryList.get(purchaseCode).getName(),subChoice,
+											vendingInventory.inventoryList.get(purchaseCode).getPrice(),shoppingCart.balance);
 								}
 								else
 								{
@@ -106,6 +111,7 @@ public class VendingMachineCLI {
 					}				
 					else if(subChoice.equals(PURCHASE_MENU_FINISH_TRANSACTION)) {
 					System.out.println("Thanks for your purchase, Gamer");
+					vendingInventory.logSale(subChoice,shoppingCart.balance);
 					shoppingCart.returnChange();
 					break;
 					

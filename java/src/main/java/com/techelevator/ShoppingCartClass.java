@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class ShoppingCartClass {
@@ -9,9 +10,9 @@ public class ShoppingCartClass {
 		return balance;
 	}
 
-	double quarter = 0.25;
-	double dime = 0.10;
-	double nickel = 0.05;
+	int quarter = 25;
+	int dime = 10;
+	int nickel = 5;
 
 	
 	int quartersToReturn = 0;
@@ -19,10 +20,9 @@ public class ShoppingCartClass {
 	int nickelsToReturn = 0;
 	
 	
-	public double subtractCost(double price) {
-			
-			balance-=price;
-		
+	public double subtractCost(double price) 
+	{		
+		balance-=price;		
 		
 		System.out.println("Your new balance is $ " + formatMoney());
 		return balance;
@@ -33,14 +33,12 @@ public class ShoppingCartClass {
 			if(balance - price >0)
 			{
 				return true;				
-			}
-			
+			}			
 			return false;
-		}
-		
+		}	
 	
-	
-	public double addFunds(double amountAdded) {
+	public double addFunds(double amountAdded) 
+	{
 		balance += amountAdded;
 		System.out.println("Your new balance is $ " + formatMoney());
 		return balance;
@@ -51,20 +49,25 @@ public class ShoppingCartClass {
 		return String.format("%.2f", balance);
 	}
 	
-	public void returnChange() {
-		
-		while(balance > 0) {
-			if(balance >= quarter) {
-				quartersToReturn++;
-				balance -= quarter;
-	} else if (balance >= dime) {
-		dimesToReturn++;
-		balance -= dime;
-	} else if (balance >= nickel) {
-		nickelsToReturn++;
-		balance -= nickel;
-	}
-	}
+	public void returnChange() {		
+		int balanceInt = (int)Math.round(balance*100);
+		while(balanceInt > 0) 
+		{
+			if(balanceInt >= quarter) 
+			{	quartersToReturn++;
+				balanceInt -= quarter;
+			} 
+			else if (balanceInt >= dime) 
+			{
+				dimesToReturn++;
+				balanceInt -= dime;
+			} 
+			else if (balanceInt >= nickel) 
+			{
+				nickelsToReturn++;
+				balanceInt -= nickel;
+			}
+		}
 		this.balance = 0;
 	System.out.println("Your change is as follows " + quartersToReturn + " quarters, " + dimesToReturn + " dimes, " + nickelsToReturn + " nickels." );
 	}

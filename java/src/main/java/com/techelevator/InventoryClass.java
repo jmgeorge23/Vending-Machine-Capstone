@@ -27,15 +27,22 @@ public class InventoryClass {
 			System.out.println(entry.getKey() + " | " + entry.getValue().getName() + " | " + entry.getValue().formatMoney(entry.getValue().getPrice()) + " | "+ entry.getValue().getStock() + " | ");
 		});
 	}
-	public void logSale(String item, double price) throws IOException
+	public void logSale(String item, String menuChoice, double price, double balance) throws IOException
 	{
 		
 		try	(FileWriter writer = new FileWriter(loggerFile, true))
 		{
-			writer.append(LocalDateTime.now() + " "+item + "|" + price+"\n");
-		}
-		totalSales += price;
+			totalSales += price;
+			writer.append(LocalDateTime.now() +  menuChoice + " "+item + "|" + price+ "|" + balance +"\n");
+		}		
+	}
+	public void logSale(String menuChoice, double balance) throws IOException
+	{
 		
+		try	(FileWriter writer = new FileWriter(loggerFile, true))
+		{			
+			writer.append(LocalDateTime.now() +  menuChoice + " "+ "|" + "|" + balance +"\n");
+		}		
 	}
 	
 	public void setInventoryList(File inventory)
