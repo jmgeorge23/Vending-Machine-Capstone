@@ -1,0 +1,17 @@
+
+Stackers|1.45
+Stackers|1.45
+Stackers|1.45
+Potato Crisps|3.05
+Heavy|1.5
+Grain Waves|2.75
+Wonka Bar|1.5
+2020-10-10T10:53:27.759 Cloud Popcorn|3.65
+2020-10-10T10:53:34.668 Cola|1.25
+2020-10-10T10:53:39.550 Dr. Salt|1.5
+2020-10-10T10:53:51.249 Cloud Popcorn|3.65
+2020-10-10T11:07:26.174 Potato Crisps|3.05
+2020-10-10T11:10:48.712 Potato Crisps|3.05
+2020-10-10T11:11:50.374 Potato Crisps|3.05
+2020-10-10T11:12:38.873 Potato Crisps|3.05
+2020-10-10T11:14:01.412 Potato Crisps|3.05

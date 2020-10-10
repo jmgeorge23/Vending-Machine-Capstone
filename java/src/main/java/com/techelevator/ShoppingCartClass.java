@@ -20,11 +20,25 @@ public class ShoppingCartClass {
 	
 	
 	public double subtractCost(double price) {
-		balance-=price;
-		System.out.println("Your new balance is $ " + formatMoney());
-		return balance;		
+			
+			balance-=price;
 		
-	} 
+		
+		System.out.println("Your new balance is $ " + formatMoney());
+		return balance;
+	}
+	
+	public boolean canOrder(double price)
+		{
+			if(balance - price >0)
+			{
+				return true;				
+			}
+			
+			return false;
+		}
+		
+	
 	
 	public double addFunds(double amountAdded) {
 		balance += amountAdded;
