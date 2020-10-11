@@ -43,8 +43,16 @@ public class VendingMachineItem {
 	{
 		return stock;
 	}
-	public void takeOne(){
+	public boolean takeOne(){
+		if(stock > 0) {
 		stock-=1;
+		return true;
+		}else {
+			System.out.println(getName() + " is out of stock");
+			return false;
+		}
+		
+		
 	}
 	public String formatMoney(double price)
 	{

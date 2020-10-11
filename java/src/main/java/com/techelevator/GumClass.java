@@ -12,4 +12,7 @@ public class GumClass extends VendingMachineItem{
 		type = "Gum";
 		sound = "Chew Chew, Yum!";		
 	}	
+	
+
+	
 }
