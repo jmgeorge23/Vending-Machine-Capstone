@@ -74,6 +74,7 @@ public class VendingMachineCLI {
 						while(true)
 						{	
 							System.out.println("What galaxy-brained purchase would you like to make?");
+							vendingInventory.printInventoryList();
 							String purchaseCode = codeScanner.nextLine().toUpperCase();
 							
 							if(vendingInventory.inventoryList.containsKey(purchaseCode))
