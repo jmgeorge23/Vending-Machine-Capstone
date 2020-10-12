@@ -30,3 +30,7 @@ Wonka Bar|1.5
 2020-10-10T14:04:37.579Feed Money ||5.0
 2020-10-10T14:04:57.437Select Item Stackers|1.45|3.55
 2020-10-11T10:53:51.760Feed Money ||20.0
+2020-10-11T13:25:00.151Feed Money ||1.0
+2020-10-11T13:25:27.858Feed Money ||3.0
+2020-10-11T13:25:33.073Select Item Stackers|1.45|1.55
+2020-10-11T13:25:37.626Complete Transaction ||1.55
